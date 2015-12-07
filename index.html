@@ -29,8 +29,11 @@
 <body>
 
 	<header>
-		<button class="back" onclick="history.back()">
-			<img src="ui/images/arrow-left.svg" />
+<!-- 		<button class="back" onclick="history.back()">
+			<img src="ui/images/growit-menu.png" />
+		</button> -->
+		<button class="menu-button">
+			<img src="ui/images/menu.png" />
 		</button>
 
 		<img class="logotype" src="ui/images/logo.svg" alt="Evothings" />
@@ -38,9 +41,7 @@
 		<!--<button class="menu" onclick=""><img src="ui/images/menu.svg" /></button>-->
 	</header>
 
-	<h1>Estimote Beacons</h1>
-	<p>Demo of ranging for Estimote Beacons. Works with all factory configured beacons.</p>
-	<ul id="found-beacons" class="dynamic"></ul>
+	<ul id="found-beacons" class="dynamic card"></ul>
 <!-- 	<ul id="read-beacons" class="dynamic"></ul>
  -->
 </body>
