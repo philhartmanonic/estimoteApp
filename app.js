@@ -25,8 +25,6 @@ var app = (function()
 
 		// Display refresh timer.
 		updateTimer = setInterval(displayBeaconList, 1000);
-
-		updateOther = setInterval(someShit, 1000);
 	}
 
 	function startScan()
@@ -89,43 +87,11 @@ var app = (function()
 					+ '</li>'
 				);
 
-				
-
-				$('#found-beacons').append(element)
+				// $('#found-beacons').append(element)
+				contextHTML(beacon, element);
 			}
 		});
 	}
-
-/*	function someShit()
-		// Clear beacon list.
-		$('#read-beacons').empty();
-
-		var timeNow = Date.now();
-
-		// Update beacon list.
-		$.each(beacons, function(key, beacon)
-		{
-			// Only show beacons that are updated during the last 60 seconds.
-			if (beacon.timeStamp + 60000 > timeNow)
-			{
-				// Create tag to display beacon data.
-				var something = $(
-					if(beacon.major === 45403) {
-						'<h1> Some fuckin flower </h1>'
-						'<li>'
-						+ 'Grows a million feet high <br />'
-						+ 'Smells like butt <br />'
-						+ 'Scott is a jerk <br />'
-					}
-				);
-
-				
-
-				$('#read-beacons').append(something)
-			}
-			}
-		);*/
-	
 
 	function proximityHTML(beacon)
 	{
@@ -154,6 +120,19 @@ var app = (function()
 		if (meters < 0) { distance = '?'; }
 
 		return 'Distance: ' + distance + '<br />'
+	}
+
+	function contextHTML(beacon, el)
+	{
+		if (beacon.major === 8247) {
+			$('#found-beacons').append('first element');
+		    $('#found-beacons').append(el);
+
+        } else if (beacon.major === 48915) {
+       		$('#found-beacons').append(el);
+        } else {
+        	$('#found-beacons').append('nothing found');
+        }
 	}
 
 	function rssiHTML(beacon)
