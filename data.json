@@ -1,0 +1,19 @@
+{
+	"flowers": [
+		{
+			"id": 1,
+			"major": 8247,
+			"name": "Tulipa \"Queen of the Night\"",
+			"common": "Tulip",
+			"bloomTime": "Spring",
+			"height": "2'",
+			"image": "pictures/queenOfTheNight.jpg",
+			"lightReq": "Full sun",
+			"tours": [
+				"Tulips",
+				"Spring",
+				"Purple"
+			]
+		}
+	]
+}
