@@ -1,0 +1,34 @@
+Tours structure:
+
+  - "Gardens nearby" feature 
+  		Best done using GPS, beacon ranges are far too small to have any meaningful impact on this.
+  - Tour patterns 
+  	 	Initially should be structured in a straightforward way.  Future improvements can be a mixture of existing curated tours and dynamically created personalized tours, but to start the focus should be on the curated tours.
+  - Tour guide
+  		Use beacons to show stops on a map, using JavaScript
+  - Details
+  		]-	See JSON file for data model
+  		]-	Showing the details during the tour would operate via beacon IDs
+
+--------------------
+Good / Better / Best
+--------------------
+
+--------
+| Good |
+--------
+	-	Curated tours
+	-	Guided by beacon locations shown on a map
+	-	Plant details associated with beacons
+
+----------
+| Better |
+----------
+	-	"Gardens nearby" geofencing
+	-	Ordered tour
+	-	Show routes using garden paths
+
+--------
+| Best |
+--------
+	-	Personalized tours utilizing user preferences and plant tagging
