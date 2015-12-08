@@ -57,7 +57,9 @@ section::after {
 .hidden {
 	display: none;
 }
-
+.nav-bar {
+	height: 80px;
+}
 
 
 
@@ -135,7 +137,7 @@ header img.logotype {
 	left: 0;
 	right: 0;
 
-	height: 60%;
+	height: 35px;
 
 	margin: 0 auto;
 
@@ -175,7 +177,7 @@ header button#menu-button {
 	box-shadow: none;
 }
 header button#menu-button img {
-	height: 34%;
+	width: 30px;
 }
 header button#menu-button:focus {
 	pointer-events: none;
@@ -449,7 +451,7 @@ input.btn-group {
 	---------------------------------------------------------- */
 
 .card {
-	padding: 2em;
+	padding-top: 20px;
 }
 canvas {
 	padding: 7px;

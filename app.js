@@ -69,6 +69,8 @@ var app = (function()
 		$('#found-beacons').empty();
 
 		var timeNow = Date.now();
+		var counter = 0;
+		// var beaconOrderList = [10];
 
 		// Update beacon list.
 		$.each(beacons, function(key, beacon)
@@ -76,24 +78,55 @@ var app = (function()
 			// Only show beacons that are updated during the last 60 seconds.
 			if (beacon.timeStamp + 60000 > timeNow)
 			{
-				// Create tag to display beacon data.
-				// var element = $(
-				// 	'<li>'
-				// 	+	'Major: ' + beacon.major + '<br />'
-				// 	+	'Minor: ' + beacon.minor + '<br />'
-				// 	+	proximityHTML(beacon)
-				// 	+	distance(beacon)
-				// 	+	rssiHTML(beacon)
-				// 	+ '</li>'
-				// );
-
-				// $('#found-beacons').append(element)
 				contextHTML(beacon);
+				// if (counter === 0) {
+				//  	beaconOrderList.push(beacon.major);
+				//  	counter++;
+				// } else {
+				// 	beaconOrderList
+				// 	counter++;
+				// }
 			}
 		});
 	}
 
-	function proximityHTML(beacon)
+	function distance(beacon)
+	{
+		var meters = beacon.distance;
+		if (!meters) { return ''; }
+
+		return meters.toFixed(3);
+	}
+
+	function sortBeacons(beacon, dist) {
+		
+	}
+
+	function contextHTML(beacon)
+	{
+		// list of majors: 45403, 8247, 48915
+		//$('#found-beacons').append(distance(beacon));
+		if (beacon.major === 8247) {
+			if (distance(beacon) < 5) {
+				$('#found-beacons').append('<img class="card" src="ui/images/arch.png" />');
+			} else {
+				$('#found-beacons').append(distance(beacon));
+			}
+        } else if (beacon.major === 45403) {
+			if (distance(beacon) < 5) {
+				$('#found-beacons').append('<img class="card" src="ui/images/gardening.png" />');
+			} else {
+				$('#found-beacons').append(distance(beacon));
+			}
+	    } else if (beacon.major === 48915) {
+			if (distance(beacon) < 5) {
+				$('#found-beacons').append('<img class="card" src="ui/images/scott.png" />');
+			} else {
+				$('#found-beacons').append(distance(beacon));
+			}
+	    }
+	}
+		function proximityHTML(beacon)
 	{
 		var proximity = beacon.proximity;
 		if (!proximity) { return ''; }
@@ -106,38 +139,6 @@ var app = (function()
 
 		return proximityNames[proximity];
 	}
-
-	function distance(beacon)
-	{
-		var meters = beacon.distance;
-		if (!meters) { return ''; }
-
-		return meters.toFixed(3);
-	}
-
-	function contextHTML(beacon)
-	{
-		if (beacon.major === 8247) {
-			$('#found-beacons').append(distance(beacon));
-			// switch (distance(beacon)) {
-			// 	case 'Immediate':
-			// 		$('#found-beacons').append("Immediate");
-			// 		break;
-			// 	case 'Near':
-			// 		$('#found-beacons').append("Near");
-			// 		break;
-			// 	case 'Far':
-			// 		$('#found-beacons').append("Far");
-			// 		break;
-			// 	default:
-			// 		$('#found-beacons').append("None of the above");
-			// }
-        }
-	}
-		// } else if (beacon.major === 48915) {
-  //      		$('#found-beacons').append(proximityHTML(beacon));
-  //       } else {
-  //       	$('#found-beacons').append('nothing found');
 	function rssiHTML(beacon)
 	{
 		var beaconColors = [
